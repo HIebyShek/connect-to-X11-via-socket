@@ -42,9 +42,9 @@ def auth(sock: socket.socket, xauthority):
     rw.flush()
 
     sock.send(ic(rw.getvalue()))
-    data = sock.recv(1024)
+    data = sock.recv(8)
     # data = rw.readall()
-    assert(ic(data[0]) == 2)
+    assert(ic(data[0]) == 1)
 
 def main(xauthority, display):
     sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
